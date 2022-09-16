@@ -9,6 +9,7 @@ using HSDRawViewer.Rendering.GX;
 using HSDRawViewer.Rendering.Models;
 using HSDRawViewer.Tools;
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
@@ -857,6 +858,47 @@ namespace HSDRawViewer.GUI.Controls.JObjEditor
                     }
 
                     _trackEditor.SetKeys("", GraphEditor.AnimType.Joint, null);
+                }
+            }
+        }
+
+        private void compressAllAnimsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var files = FileIO.OpenFiles("Supported (*.dat)|*.dat");
+
+            if (files != null)
+            {
+                using (PropertyDialog d = new PropertyDialog("Animation Optimize Settings", _settings))
+                {
+                    if (d.ShowDialog() == DialogResult.OK)
+                    {
+                        foreach (var file in files)
+                        {
+                            long length = new FileInfo(file).Length;
+
+                            if (length > 0)
+                            {
+                                var anim = JointAnimManager.LoadFromPath(_jointTree._jointMap, file);
+
+                                if (anim != null)
+                                {
+                                    LoadAnimation(anim);
+                                }
+
+                                foreach (var joint in _jointTree.EnumerateJoints())
+                                {
+                                    var tracks = joint.Tracks;
+                                    AnimationKeyCompressor.OptimizeJointTracks(joint.jobj, ref tracks, _settings.ErrorMargin);
+                                }
+
+                                _trackEditor.SetKeys("", GraphEditor.AnimType.Joint, null);
+
+                                var fname = Path.GetFileNameWithoutExtension(file);
+
+                                ToJointAnim().ExportAsFigatreeNoDialog(file, fname, 0.0001f);
+                            }
+                        }
+                    }
                 }
             }
         }

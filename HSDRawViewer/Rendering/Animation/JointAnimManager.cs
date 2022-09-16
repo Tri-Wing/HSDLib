@@ -481,6 +481,11 @@ namespace HSDRawViewer.Rendering
             return null;
         }
 
+        public static JointAnimManager LoadFromPath(JointMap _jointMap, string path)
+        {
+            return JointAnimationLoader.LoadJointAnimFromFile(_jointMap, path);
+        }
+
         /// <summary>
         /// 
         /// </summary>
@@ -557,6 +562,17 @@ namespace HSDRawViewer.Rendering
                     });
                     animFile.Save(f);
                 }
+        }
+
+        public void ExportAsFigatreeNoDialog(string path, string Symbol, float CompressionError)
+        {
+            HSDRawFile animFile = new HSDRawFile();
+            animFile.Roots.Add(new HSDRootNode()
+            {
+                Data = ToFigaTree(CompressionError),
+                Name = Symbol
+            });
+            animFile.Save(path);
         }
     }
 }

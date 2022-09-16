@@ -46,9 +46,12 @@
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
             this.createToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clearToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.compressAllTracksToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fSMApplyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.batchEditingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.compressAllAnimsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.renderDropDown = new System.Windows.Forms.ToolStripDropDownButton();
             this.displaySettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fogSettingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -146,9 +149,11 @@
             this.toolStripSeparator9,
             this.createToolStripMenuItem,
             this.clearToolStripMenuItem,
-            this.toolStripSeparator7,
+            this.toolStripSeparator1,
             this.compressAllTracksToolStripMenuItem,
-            this.fSMApplyToolStripMenuItem});
+            this.fSMApplyToolStripMenuItem,
+            this.toolStripSeparator7,
+            this.batchEditingToolStripMenuItem});
             this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
             this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
@@ -212,10 +217,10 @@
             this.clearToolStripMenuItem.Text = "Clear";
             this.clearToolStripMenuItem.Click += new System.EventHandler(this.clearToolStripMenuItem_Click);
             // 
-            // toolStripSeparator7
+            // toolStripSeparator1
             // 
-            this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(226, 6);
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(226, 6);
             // 
             // compressAllTracksToolStripMenuItem
             // 
@@ -230,6 +235,26 @@
             this.fSMApplyToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
             this.fSMApplyToolStripMenuItem.Text = "Apply Frame Speed Modifiers";
             this.fSMApplyToolStripMenuItem.Click += new System.EventHandler(this.fSMApplyToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(226, 6);
+            // 
+            // batchEditingToolStripMenuItem
+            // 
+            this.batchEditingToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.compressAllAnimsToolStripMenuItem});
+            this.batchEditingToolStripMenuItem.Name = "batchEditingToolStripMenuItem";
+            this.batchEditingToolStripMenuItem.Size = new System.Drawing.Size(229, 22);
+            this.batchEditingToolStripMenuItem.Text = "Batch Editing";
+            // 
+            // compressAllAnimsToolStripMenuItem
+            // 
+            this.compressAllAnimsToolStripMenuItem.Name = "compressAllAnimsToolStripMenuItem";
+            this.compressAllAnimsToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.compressAllAnimsToolStripMenuItem.Text = "Compress All Anims";
+            this.compressAllAnimsToolStripMenuItem.Click += new System.EventHandler(this.compressAllAnimsToolStripMenuItem_Click);
             // 
             // renderDropDown
             // 
@@ -376,5 +401,8 @@
         private System.Windows.Forms.ToolStripLabel toolStripLabel3;
         private System.Windows.Forms.ToolStripComboBox viewModeBox;
         private System.Windows.Forms.ToolStripMenuItem compressAllTracksToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem batchEditingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem compressAllAnimsToolStripMenuItem;
     }
 }
